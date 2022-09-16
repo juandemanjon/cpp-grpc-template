@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(cpp-grpc-template VERSION 0.1.0)
 
 # vcpkg settings must be set before project()
 if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
@@ -19,16 +18,17 @@ set(_VCPKG_INSTALLED_DIR
     "${CMAKE_CURRENT_LIST_DIR}/vcpkg_installed"
     CACHE STRING "")
 
+project(cpp-grpc-template VERSION 0.1.0)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 find_package(gRPC CONFIG REQUIRED)
 find_package(Threads)
 
 include(CTest)
 enable_testing()
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
