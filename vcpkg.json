@@ -1,0 +1,14 @@
+{
+    "name": "cpp-grpc-template",
+    "version": "0.0.0",
+    "dependencies": [
+        "catch2",
+        {
+            "name": "grpc",
+            "features": [
+                "codegen"
+            ]
+        },
+        "fmt"
+    ]
+}
