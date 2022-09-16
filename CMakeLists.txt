@@ -8,6 +8,8 @@ if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
       CACHE STRING "")
 endif()
 
+message("CMAKE_TOOLCHAIN_FILE: " ${CMAKE_TOOLCHAIN_FILE})
+
 # In Manifest mode CMake invokes vcpkg automatically This makes setup easier, however, in CI or Docker we may want to
 # turn this off
 option(VCPKG_MANIFEST_MODE "Build vcpkg ports from manifest" ON)
@@ -17,10 +19,20 @@ set(_VCPKG_INSTALLED_DIR
     "${CMAKE_CURRENT_LIST_DIR}/vcpkg_installed"
     CACHE STRING "")
 
+
+find_package(gRPC CONFIG REQUIRED)
+find_package(Threads)
+
 include(CTest)
 enable_testing()
 
-add_executable(cpp-grpc-template main.cpp)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE gRPC::gpr)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
