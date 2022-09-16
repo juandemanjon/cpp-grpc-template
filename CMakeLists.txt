@@ -32,7 +32,13 @@ enable_testing()
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE gRPC::gpr)
+target_link_libraries(${PROJECT_NAME} 
+    PRIVATE
+        protobuf::libprotobuf
+        gRPC::grpc
+        gRPC::grpc++
+        gRPC::gpr
+)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -14,8 +14,8 @@
             },
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
+            "cwd": "${workspaceFolder}",
+            "env": {"GRPC_VERBOSITY":"DEBUG"},
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -39,7 +39,9 @@
                 "program": "${workspaceFolder}/build/cpp-grpc-template"
             },
             "args": [],
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "env": {"GRPC_VERBOSITY":"DEBUG"},
+
         }
     ]
 }
