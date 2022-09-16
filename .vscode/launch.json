@@ -15,7 +15,9 @@
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "env": {"GRPC_VERBOSITY":"DEBUG"},
+            "env": {
+                "GRPC_VERBOSITY": "DEBUG"
+            },
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
@@ -35,12 +37,12 @@
             "name": "(lldb) Launch",
             "type": "lldb",
             "request": "launch",
-            "linux": {
-                "program": "${workspaceFolder}/build/cpp-grpc-template"
-            },
+            "program": "${workspaceFolder}/build/cpp-grpc-template",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "env": {"GRPC_VERBOSITY":"DEBUG"},
+            "env": {
+                "GRPC_VERBOSITY": "DEBUG"
+            },
 
         }
     ]
