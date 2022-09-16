@@ -2,4 +2,5 @@ tasks:
   - init: >
       git submodule foreach git submodule update --init
       && vcpkg/bootstrap-vcpkg.sh -disableMetrics
-      && export VCPKG_ROOT="/workspace/CppTestCaseTemplate/vcpkg"    
+      && export VCPKG_ROOT="$GITPOD_REPO_ROOT/vcpkg" 
+      && gp env VCPKG_ROOT="$GITPOD_REPO_ROOT/vcpkg"
