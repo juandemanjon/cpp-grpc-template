@@ -16,3 +16,12 @@ vcpkg/bootstrap-vcpkg.sh -disableMetrics
 export VCPKG_ROOT=`pwd`/vcpkg
 vcpkg/vcpkg install --feature-flags=manifests 
 ```
+
+Windows
+```bat
+git submodule update --init
+vcpkg\bootstrap-vcpkg.bat -disableMetrics
+
+set VCPKG_ROOT=%CD%\vcpkg
+vcpkg\vcpkg install --feature-flags=manifests 
+```
